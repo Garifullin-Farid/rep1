@@ -3,7 +3,7 @@ using static System.Windows.Forms.DataFormats;
 
 namespace Гарифуллин_Ф.М_Курсовая_работа
 {
-    internal class Visualizer
+    public class Visualizer
     {
 
         State? _state { get; set; }

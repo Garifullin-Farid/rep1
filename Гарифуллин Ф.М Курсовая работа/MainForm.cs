@@ -1,3 +1,4 @@
+using System.Windows.Forms;
 using static System.Windows.Forms.AxHost;
 
 namespace Гарифуллин_Ф.М_Курсовая_работа
@@ -12,7 +13,17 @@ namespace Гарифуллин_Ф.М_Курсовая_работа
         {
             InitializeComponent();
         }
+        private void SetParam(Param param)
+        {
+            _param = param;
+            if ( param == null)
+            {
+                return;
+            }
+            
 
+            
+        }
         private void Draw()
         {
 
@@ -22,7 +33,7 @@ namespace Гарифуллин_Ф.М_Курсовая_работа
             }
             Bitmap bmp = new(pictureBox1.Width, pictureBox1.Height);
             Graphics gr = Graphics.FromImage(bmp);
-            _visualizer.Drawning(gr,_management._realization.num);
+            _visualizer.Drawning(gr, _management._realization.num);
             pictureBox1.Image = bmp;
 
         }
@@ -31,7 +42,7 @@ namespace Гарифуллин_Ф.М_Курсовая_работа
 
         private void button1_Click(object sender, EventArgs e)
         {
-            _param = new Param();
+            
             _management = new Management(_param);
             _management.PerformOperation();
             if (_management._storage == null)
@@ -47,7 +58,7 @@ namespace Гарифуллин_Ф.М_Курсовая_работа
         private void button2_Click(object sender, EventArgs e)
         {
 
-            if (_management._storage == null || j+1 >= _management._storage._states.Count)
+            if (_management._storage == null || j + 1 >= _management._storage._states.Count)
             {
                 return;
             }
@@ -58,8 +69,8 @@ namespace Гарифуллин_Ф.М_Курсовая_работа
 
         private void button3_Click(object sender, EventArgs e)
         {
-            
-            if (_management._storage == null || j-1 <0)
+
+            if (_management._storage == null || j - 1 < 0)
             {
                 return;
             }
@@ -67,6 +78,16 @@ namespace Гарифуллин_Ф.М_Курсовая_работа
 
             _visualizer = new Visualizer(_management._storage._states[j]);
             Draw();
+        }
+
+     
+
+        private void buttonSetParam_Click(object sender, EventArgs e)
+        {
+            ParamForm form = new();
+            form.AddEvent(SetParam);
+            form.Show();
+            
         }
     }
 }

@@ -5,12 +5,12 @@
         /// <summary>
         /// массив
         /// </summary>
-        public int[] mas = {1,1,3,4,5,6,7,8};
+        public int[] mas { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
-        public int a = 3;
+        public int a  { get; set; }
         
     }
 }

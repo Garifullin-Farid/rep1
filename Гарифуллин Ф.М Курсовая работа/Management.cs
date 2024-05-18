@@ -26,7 +26,7 @@ namespace Гарифуллин_Ф.М_Курсовая_работа
            
             for (int i = 0; i < mas.Length; i++)
             {
-                if (mas[i] == 3)
+                if (mas[i] == _realization.num)
                 {
                     for (int j = i; j < mas.Length - 1; j++)
                     {
